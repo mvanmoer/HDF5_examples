@@ -1,18 +1,10 @@
-WARNINGS = -Wall -Wextra
-STD = -ansi -pedantic -std=c++11
-DEBUG =
-OPTIMIZE = -O0
-CXXFLAGS = $(WARNINGS) $(STD) $(DEBUG) $(OPTIMIZE)
-LIBDIRS = -L/home/mvanmoer/builds/HDF5/1.8.18/lib
-INCDIRS = -I/home/mvanmoer/builds/HDF5/1.8.18/include
-CPPFLAGS = $(LIBDIRS) $(INCDIRS)
-LIBS = -lhdf5
+CXX = h5c++
 
 BIN = basic_mesh
 OBJECTS := $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 
 $(BIN): $(OBJECTS)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $^ $(LIBS)
+	$(CXX) -o $@ $^
 
 .PHONY: clean
 clean:
