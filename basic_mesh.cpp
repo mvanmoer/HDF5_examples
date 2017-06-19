@@ -1,8 +1,7 @@
 // Making a basic mesh with HDF5.
 // This is analogous to a vtkImageData dataset.
-// There is one trivial scalar field "scalars" and
-// one trivial vector field "vectors."
-// The saved file, basic_mesh.h5 can be read correctly
+// There is one trivial scalar field "scalars." 
+// The saved file, basic_scalar_mesh.h5 can be read correctly
 // by VisIt's Pixie reader.
 
 #include <string>
@@ -11,9 +10,8 @@
 #include <cmath>
 #include "hdf5.h"
 
-const std::string filename("basic_mesh.h5");
-
 int main(int argc, char** argv) {
+    const std::string filename("basic_scalar_mesh.h5");
     std::cout << "Output filename is: " << filename << std::endl;
 
     hid_t file; 
@@ -24,8 +22,9 @@ int main(int argc, char** argv) {
 
     // HDF5 convention is fastest is last, this is {zdim, ydim, xdim}.
     hsize_t dims[3] = { 128, 192, 256 };
+    
+    // arbitrary scalar data for writing.
     std::vector<float> scalars;
-
     float total = 256 * 192;
     for (int k = 0; k < dims[0]; k++) {
         for (int j = 0; j < dims[1]; j++) {
@@ -47,7 +46,6 @@ int main(int argc, char** argv) {
     // file access property list, using default
     file = H5Fcreate(filename.c_str(), H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
 
-
     // https://support.hdf5group.org/HDF5/doc/RM/RM_H5S.html#Dataspace-CreateSimple
     // args:
     // rank
@@ -67,6 +65,14 @@ int main(int argc, char** argv) {
     dataset = H5Dcreate2(file, "/scalars", H5T_IEEE_F32LE, dataspace,
             H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
 
+    // https://support.hdfgroup.org/HDF5/doc/RM/RM_H5D.html#Dataset-Write
+    // args:
+    // dataset
+    // memory datatype - this is different than file datatype
+    // what part of dataset memory to write (all of it)
+    // file data space
+    // transfer property list
+    // pointer to data
     status = H5Dwrite(dataset, H5T_NATIVE_FLOAT, H5S_ALL, H5S_ALL, H5P_DEFAULT, &scalars.front());
 
     status = H5Dclose(dataset);
