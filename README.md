@@ -5,7 +5,7 @@ Examples were built and tested against HDF5 1.8.18, but should work with older v
 
 Makefiles assume h5c++ is in $PATH.
 
-orthonormal/ - examples of 3D orthogonal, unit dx,dy,dz meshes. The mesh coordinates are implicit.
+orthonormal/ - examples of 3D orthogonal, unit dx,dy,dz meshes. The mesh coordinates are implicit. Equivalent to a vtkImageData dataset.
 
 orthonormal/scalar/ - writes a mesh with a single scalar. The output .h5 can be read directly by the Pixie reader in VisIt/ParaView.An XDMF is added only for illustration.
 
