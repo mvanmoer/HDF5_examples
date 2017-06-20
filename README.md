@@ -1,7 +1,9 @@
 Examples of making basic meshes with scalar and vector data in HDF5.
 
 Examples are in C++, but use the HDF5 C api. 
-Assumes h5c++ is in $PATH
+Examples were built and tested against HDF5 1.8.18, but should work with older versions.
+
+Makefiles assumes h5c++ is in $PATH
 
 orthonormal/ - examples of 3D orthogonal, unit dx,dy,dz meshes. The mesh coordinates are implicit.
 
