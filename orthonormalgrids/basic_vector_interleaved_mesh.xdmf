@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf xmlns:xi="http://www.w3.org/2003/XInclude" Version="2.2">
+  <Domain>
+    <Grid Name="basic_vector_comps_mesh" GridType="Uniform">
+      <Topology TopologyType="3DCORECTMesh" NumberOfElements="128 192 256" />
+      <Geometry GeometryType="ORIGIN_DXDYDZ">
+        <DataItem Name="origin" Dimensions="3" NumberType="Float" Precision="4" Format="XML">
+          0.0 0.0 0.0
+        </DataItem>
+        <DataItem Name="spacing" Dimensions="3" NumberType="Float" Precision="4" Format="XML">
+          1.0 1.0 1.0
+        </DataItem>
+      </Geometry>
+      <Attribute Name="vectors" AttributeType="Vector" Center="Node">
+        <DataItem Dimensions="256 192 128 3" NumberType="Float" Precision="4" Format="HDF">
+            basic_vector_interleaved_mesh.h5:/vectors
+        </DataItem>
+      </Attribute>
+    </Grid>
+  </Domain>
+</Xdmf>
