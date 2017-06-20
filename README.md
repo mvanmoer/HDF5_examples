@@ -12,3 +12,7 @@ orthonormal/scalar/ - writes a mesh with a single scalar. The output .h5 can be 
 orthonormal/vector_comps/ - writes a mesh with a single vector, where the vector components are written as separate arrays. The .h5 can be read with the Pixie reader, but the vector will have to be reconstituted in the vis application. The XDMF file can be read by ParaView.
 
 orthonormal/vector_interleaved/ - writes a mesh with a single vector, where the vector components are written as x,y,z triples. The .h5 can NOT be read with the Pixie reader. The XDMF file can be read by VisIt and ParaView.
+
+rectilineargrid/ - examples of 3D orthogonal, aribtrary x,y,z coordinate spacing meshes. Equivalent to a vtkRectilinearGrid data set.
+
+rectilineargrid/scalar/ - writes a mesh with a single scalar. The XDMF can be read by both VisIt and ParaView.
