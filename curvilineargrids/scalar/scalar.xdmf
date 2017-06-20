@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf xmlns:xi="http://www.w3.org/2003/XInclude" Version="2.2">
+  <Domain>
+    <Grid Name="rectilinear_scalar" GridType="Uniform">
+      <Topology TopologyType="3DSMesh" NumberOfElements="128 193 256" />
+      <Geometry GeometryType="XYZ">
+        <DataItem Name="coords" Dimensions="128 193 256 3" NumberType="Float" Precision="4" Format="HDF">
+          scalar.h5:/coords
+        </DataItem>
+      </Geometry>
+      <Attribute Name="scalars" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="128 193 256" NumberType="Float" Precision="4" Format="HDF">
+          scalar.h5:/scalars
+        </DataItem>
+      </Attribute>
+    </Grid>
+  </Domain>
+</Xdmf>
