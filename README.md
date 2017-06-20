@@ -7,7 +7,7 @@ Makefiles assume h5c++ is in $PATH.
 
 orthonormalgrids/ - examples of 3D orthogonal, unit dx,dy,dz meshes. The mesh coordinates are implicit. Equivalent to a vtkImageData dataset.
 
-orthonormalgrids/scalar/ - writes a mesh with a single scalar. The output .h5 can be read directly by the Pixie reader in VisIt/ParaView.An XDMF is added only for illustration.
+orthonormalgrids/scalar/ - writes a mesh with a single scalar. The output .h5 can be read directly by the Pixie reader in VisIt/ParaView. An XDMF is added only for illustration.
 
 orthonormalgrids/vector_comps/ - writes a mesh with a single vector, where the vector components are written as separate arrays. The .h5 can be read with the Pixie reader, but the vector will have to be reconstituted in the vis application. The XDMF file can be read by ParaView.
 
